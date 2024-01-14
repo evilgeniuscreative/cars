@@ -2,17 +2,8 @@ from django.contrib.postgres.fields import ArrayField
 from django.utils.translation import gettext_lazy as _
 
 from django.db import models
-
-
+from users import User
 # Create your models here.
-
-
-from django.contrib.postgres.fields import ArrayField
-from django.utils.translation import gettext_lazy as _
-
-from django.db import models
-
-
 class Car(models.Model):
     name = models.CharField(max_length=100)
     make = models.CharField(max_length=100)
@@ -44,6 +35,8 @@ class Car(models.Model):
     photos = ArrayField(
         models.ImageField(upload_to="car_images/")
     )
+
+    user = models.ForeignKey(user, on_delete=models.CASCADE, related_name="user", default=1)
 
     def __str__(self):
         return self.name

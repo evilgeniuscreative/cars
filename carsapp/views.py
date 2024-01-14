@@ -1,11 +1,9 @@
-from django.shortcuts import render
-
-# Create your views here.
-
-# cars/views.py
+# carsapp/views.py 
 
 from django.shortcuts import render
 from .forms import CarForm
+
+# Create your views here.
 
 def create_car(request):
     if request.method == 'POST':
