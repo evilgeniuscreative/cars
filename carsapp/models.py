@@ -37,7 +37,7 @@ class Car(models.Model):
         models.ImageField(upload_to="car_images/")
     )
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user", default=1)
+    user = models.ForeignKey('users.User', on_delete=models.CASCADE, related_name="User", default=1)
 
     def __str__(self):
         return self.name
